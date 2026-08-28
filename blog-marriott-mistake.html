@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Marriott Mistake — Accelr8 Management Consulting</title>
+<meta name="description" content="A guide to successful prompt engineering: structure, best practices, and why specificity is the whole game." />
+<meta name="theme-color" content="#8a0e0e" />
+<meta property="og:title" content="The Marriott Mistake — Accelr8 Management Consulting" />
+<meta property="og:description" content="A guide to successful prompt engineering: structure, best practices, and why specificity is the whole game." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316161a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%238a0e0e' text-anchor='middle'%3E8%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=1787877677" />
+</head>
+<body class="doc">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Accelr8 Management Consulting home">
+      <span class="brand-mark">Accelr<span class="n8">8</span></span>
+      <span class="brand-sub">Management Consulting</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ai-strategy.html">AI Strategy</a></li>
+        <li><a href="process-improvement.html">Process</a></li>
+        <li><a href="ai-marketing.html">AI Marketing</a></li>
+        <li><a href="automation.html">Automation</a></li>
+        <li><a href="cases.html">Cases</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+        <li><a class="nav-cta" href="index.html#contact">Let's go</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero hero-page" data-nav-label="The Marriott Mistake">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-rule"><span>Blog</span></div>
+        <h1 class="d1">The Marriott Mistake</h1>
+        <p class="hero-lede">A guide to successful prompt engineering.</p>
+        <div class="article-meta">
+          <span class="by">Patrick Cox</span>
+          <span>27 June 2024</span>
+          <span>2 min read</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="prose">
+        <p>
+          Imagine you are visiting Philadelphia for a conference and staying at the
+          Marriott. After a long flight you hop in the rental and begin the short
+          trip to the hotel. But thanks to canyon-like roads densely packed with tall
+          buildings, your GPS fails. After your third loop past Liberty Hall, you
+          realise you need a new plan. Frustrated, you ask a police officer, and he
+          guides you succinctly and directly to the parking garage adjacent to the
+          Marriott. After gathering your things you head to the front desk to check
+          in &mdash; only to find you don't have a reservation at <em>that</em>
+          Marriott. There are three in Philadelphia.
+        </p>
+        <p>The lesson: it is really important to ask the right question.</p>
+        <p>
+          Writing prompts for large language models is very similar. Unless you ask
+          for directions to the exact Marriott where you have a reservation, your
+          odds of success are only 33%. The usefulness and accuracy of results
+          improve with the clarity and specificity of the prompt.
+        </p>
+
+        <h3>Structure every prompt</h3>
+        <p>
+          Because of the way models like ChatGPT were trained, there are specific
+          prompt structures that consistently produce the intended output. Each
+          prompt should:
+        </p>
+        <ol>
+          <li>
+            <strong>Assign the model a role</strong>, from which its perspective,
+            approach and tone will be derived.
+            <ul>
+              <li>"You're a cardiothoracic surgeon preparing for a lecture on ventricular stents for an upcoming conference."</li>
+              <li>"You're a fifth-grade teacher preparing a lesson plan on the states of matter."</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Assign a task</strong> &mdash; what exactly would you like the model to do?
+            <ul>
+              <li>"List the top five ventricular stents and their specifications."</li>
+              <li>"Draft a lesson plan that introduces solids, liquids and gases."</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Specify the desired format.</strong>
+            <ul>
+              <li>"Display in a table with product names as columns."</li>
+              <li>"Create a PowerPoint outline with three embedded videos."</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Set parameters</strong> &mdash; time periods, geographies, distribution channels.
+            <ul>
+              <li>"Focus only on stents approved by the FDA since 2020."</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h3>Best practices</h3>
+        <ol>
+          <li>Provide the model with an example when a specific output format is desired.</li>
+          <li>Use <code>###</code> or <code>'''</code> to separate the task from examples or output parameters.</li>
+          <li>Be directive, not restrictive. Focus on what you want, not what you don't want.</li>
+          <li>Work backward from your goal &mdash; reverse-engineer your prompt.</li>
+          <li>Segment long, cumbersome requests into parsed chunks.</li>
+          <li>Ask for citations, for better reliability and context.</li>
+          <li>
+            Define success &mdash; provide goals.
+            <ul><li>"Reduce bounce rate on the homepage by improving engagement."</li></ul>
+          </li>
+          <li>
+            Use realistic scenarios.
+            <ul><li>"You're a marketing consultant pitching ChatGPT to a CPG brand to analyse trade promotion ROI."</li></ul>
+          </li>
+          <li>
+            Encourage analysis.
+            <ul><li>"Compare ChatGPT and Perplexity's capabilities in evaluating marketing attribution models and provide a recommendation."</li></ul>
+          </li>
+        </ol>
+
+        <p>
+          Large language models are incredibly powerful research tools when used
+          effectively. Asking better questions yields better answers. Best of luck in
+          your discovery &mdash; and happy prompting.
+        </p>
+
+        <div class="refs">
+          <h3>References</h3>
+          <ul>
+            <li><a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI prompt engineering guide</a></li>
+            <li><a href="https://community.openai.com/t/a-guide-to-crafting-effective-prompts-for-diverse-applications/493914">A guide to crafting effective prompts for diverse applications</a></li>
+            <li><a href="https://www.techtarget.com/searchenterpriseai/tip/Prompt-engineering-tips-and-best-practices">TechTarget &mdash; Prompt engineering tips and best practices</a></li>
+            <li><a href="https://www.prompthub.us/blog/10-best-practices-for-prompt-engineering-with-any-model">PromptHub &mdash; 10 best practices for prompt engineering</a></li>
+          </ul>
+        </div>
+
+        <p><a class="back-link" href="blog.html">&larr; All posts</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <span class="brand">
+          <span class="brand-mark">Accelr<span class="n8">8</span></span>
+          <span class="brand-sub">Management Consulting</span>
+        </span>
+        <p class="footer-tag">Add fuel, reduce drag&hellip; Accelr8</p>
+      </div>
+      <div class="footer-col">
+        <h4>Capability</h4>
+        <ul>
+          <li><a href="ai-strategy.html">AI Strategy</a></li>
+          <li><a href="process-improvement.html">Process Improvement</a></li>
+          <li><a href="ai-marketing.html">AI Marketing</a></li>
+          <li><a href="automation.html">Automation &amp; RPA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="cases.html">Cases</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="mailto:iwanttogofast@accelr8iq.com">iwanttogofast@accelr8iq.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> Accelr8 Management Consulting. All rights reserved.</span>
+      <span>Fuel your business.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js?v=1787877677"></script>
+</body>
+</html>
