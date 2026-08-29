@@ -13,6 +13,7 @@ A static multi-page site. No build step, no dependencies, no framework.
 | `blog.html` | Blog index + newsletter signup |
 | `blog-can-we-talk.html` | Post — *Can we Talk?*, Patrick C. Cox, 24 Jun 2025 |
 | `blog-marriott-mistake.html` | Post — *The Marriott Mistake*, Patrick Cox, 27 Jun 2024 |
+| `assets/` | Client marks and case artefacts (PNG) |
 | `styles.css` | Shared design system |
 | `script.js` | Mobile nav, enquiry form → `mailto:`, footer year |
 
@@ -49,6 +50,34 @@ Content patterns are ruled rather than boxed: `.ruled-grid` for capability
 columns, `.numbered` for challenge lists, `.stages` for engagement steps,
 `.figures` / `.figure` for statistics, `.versus` for the two-column contrast,
 `.marks` for bulleted lists. There is no card component.
+
+## Client marks and case artefacts
+
+Cases carry two kinds of imagery, both sized so a section still fits one
+viewport (see **Screen layout**):
+
+- **`.case-mark`** — the client logo, right-aligned on the section rule
+  opposite the index and label. Height-capped at `clamp(28px, 3.8vh, 38px)`, so
+  it costs the header a few pixels rather than a band. The supplied logos have
+  white backgrounds, so the class sets `mix-blend-mode: multiply` — without it
+  the mark reads as a white box on `.band-wash` sections.
+- **`.case-visual`** — supporting artefacts stacked under `.case-results` in the
+  narrow column, in the same ruled idiom as everything else: a hairline, the
+  image, then a `figcaption`. Below 900px the column goes full width, so the
+  block is capped at `30rem`.
+
+Images render at intrinsic size capped by the column (`width: auto`), never
+upscaled — the Goodyear photo is only 302px wide and stretching it to fill the
+column just reads as soft.
+
+**One artefact per case is the budget.** The Element Group section fits a single
+figure; a second one pushed it ~200px past the viewport. Crop artefacts tight —
+whitespace baked into the source makes the image sit indented from the rule
+above it.
+
+Source imagery comes from the live Zyro site, under
+`https://assets.zyrosite.com/AQEDbPa65Jtz04kv/` — the hashed filenames are
+listed in the page source of `accelr8iq.com/cases`.
 
 ## Hero video
 
