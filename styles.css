@@ -91,6 +91,12 @@ p:last-child { margin-bottom: 0; }
 .muted { color: var(--ink-soft); }
 .accent { color: var(--crimson); }
 
+/* Highlight: marks the load-bearing phrase inside a heading. Deliberately
+   restricted to one phrase per heading — the accent only carries weight
+   while it stays rare. Lifted on dark grounds, where #8a0e0e goes muddy. */
+.hl { color: var(--crimson); }
+.band-night .hl, .hero .hl { color: #d97070; }
+
 em { font-style: italic; }
 
 a { color: var(--crimson); text-decoration-thickness: 1px; text-underline-offset: 3px; }
