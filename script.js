@@ -101,10 +101,11 @@
       // data-saver modes defer autoplay until there is an interaction. Retry
       // on the first one rather than discarding the video; a still frame
       // behind the scrim is a perfectly good hero in the meantime.
-      // Half speed: the source footage moves fast enough to pull attention off
-      // the headline. Re-applied on play and on metadata load, because some
+      // Quarter speed. The source is a speeding-metro shot, fast enough at any
+      // normal rate to pull attention off the headline; this reduces it to
+      // ambient drift. Re-applied on play and on metadata load, because some
       // browsers reset the rate when the element (re)initialises.
-      var HERO_SPEED = 0.5;
+      var HERO_SPEED = 0.25;
       var setSpeed = function () {
         heroVid.defaultPlaybackRate = HERO_SPEED;
         heroVid.playbackRate = HERO_SPEED;
