@@ -766,3 +766,6 @@ html.js-tx [data-rv].rv-in {
   .case-body p, .case-body li { font-size: 1rem; }
   .case-results li { font-size: .9688rem; padding: .45rem 0; }
 }
+/* The client marks merged in from cases/client-imagery add a little height to
+   each case; trim the results list to keep every case on one screen. */
+.case-results li { padding: clamp(.45rem, 1.25vh, .68rem) 0; }
