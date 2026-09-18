@@ -104,7 +104,7 @@
       // Plays at normal rate. Lowering playbackRate cannot give slow AND smooth:
       // it divides the unique frames shown, and below ~12/sec motion stops
       // reading as continuous. The slowdown is baked into the file instead —
-      // ffmpeg synthesised the in-between frames, so it is 2.5x slower at a
+      // ffmpeg synthesised the in-between frames, so it is 4x slower at a
       // genuine 30fps. Kept as a constant in case the rate ever needs nudging.
       var HERO_SPEED = 1;
       var setSpeed = function () {
@@ -136,6 +136,68 @@
         if (heroVid.parentNode) heroVid.parentNode.removeChild(heroVid);
       });
     }
+  }
+
+  /* ---- 2b2. Engagement timeline ---- */
+  // Every panel is present in the HTML, so with no JavaScript all five render
+  // stacked and fully readable. This only hides the inactive ones and turns
+  // the markers into a proper tablist.
+  var track = document.querySelector(".track[role='tablist']");
+  if (track) {
+    var tabs = [].slice.call(track.querySelectorAll("[role='tab']"));
+    var panels = tabs.map(function (t) {
+      return document.getElementById(t.getAttribute("aria-controls"));
+    });
+
+    // Reserve the tallest panel's height up front, so switching phases never
+    // resizes the section and shifts what is below it.
+    var holder = document.querySelector(".track-panels");
+    function lockHeight() {
+      if (!holder) return;
+      holder.style.minHeight = "";
+      var tallest = 0;
+      panels.forEach(function (p, i) {
+        var wasHidden = p.hidden;
+        p.hidden = false;
+        tallest = Math.max(tallest, p.offsetHeight);
+        p.hidden = wasHidden;
+      });
+      if (tallest) holder.style.minHeight = tallest + "px";
+    }
+
+    function select(i, focus) {
+      tabs.forEach(function (t, j) {
+        t.setAttribute("aria-selected", j === i ? "true" : "false");
+        t.tabIndex = j === i ? 0 : -1;          // roving tabindex
+        if (panels[j]) panels[j].hidden = j !== i;
+      });
+      var panel = panels[i];
+      if (panel && !REDUCED) {
+        panel.classList.remove("is-entering");
+        void panel.offsetWidth;                  // restart the animation
+        panel.classList.add("is-entering");
+      }
+      if (focus) tabs[i].focus();
+    }
+
+    tabs.forEach(function (t, i) {
+      t.tabIndex = i === 0 ? 0 : -1;
+      t.addEventListener("click", function () { select(i, false); });
+      t.addEventListener("keydown", function (e) {
+        var to = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") to = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") to = 0;
+        else if (e.key === "End") to = tabs.length - 1;
+        if (to === null) return;
+        e.preventDefault();
+        select(to, true);
+      });
+    });
+
+    lockHeight();
+    window.addEventListener("resize", lockHeight, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(lockHeight);
   }
 
   /* ---- 2c. Newsletter signup ---- */

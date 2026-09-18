@@ -134,7 +134,7 @@ section { padding-block: var(--pad-section); }
   border-top: 1px solid var(--line);
   margin-bottom: clamp(1.5rem, 3.5vh, 2.75rem);
 }
-.sec-n { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 300; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.sec-n { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 300; line-height: 1; color: var(--crimson); font-variant-numeric: tabular-nums; }
 .sec-label { font-family: var(--sans); font-size: .9375rem; font-weight: 400; color: var(--ink-mute); }
 
 /* Every section header is the same shape: the statement runs the full
@@ -183,7 +183,7 @@ section { padding-block: var(--pad-section); }
 /* Plain marker list */
 .marks { list-style: none; margin: .85rem 0 0; padding: 0; }
 .marks li { position: relative; padding-left: 1.25rem; margin-bottom: clamp(.35rem, 1vh, .6rem); color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.55; }
-.marks li::before { content: ""; position: absolute; left: 0; top: .72em; width: 4px; height: 1px; background: var(--crimson); }
+.marks li::before { content: ""; position: absolute; left: 0; top: .66em; width: 5px; height: 5px; border-radius: 50%; background: var(--crimson); opacity: .55; }
 .marks li:last-child { margin-bottom: 0; }
 .band-night .marks li { color: #b6b4b0; }
 
@@ -582,4 +582,162 @@ html.js-tx [data-rv].rv-in {
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-media video { animation: none; transform: none; }
+}
+
+/* =========================================================
+   Engagement timeline
+   Segment widths are proportional to how long each phase
+   takes, so the shape of the track carries information.
+
+   Every panel ships in the HTML. Without JavaScript all five
+   render, stacked and readable; the script only hides the
+   inactive ones and wires up the tabs.
+   ========================================================= */
+
+.track {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 2fr 2fr 1.4fr;   /* widths ∝ duration */
+  margin-top: clamp(2.25rem, 5vh, 3.5rem);
+}
+@media (max-width: 779px) { .track { grid-template-columns: 1fr 1fr; } }
+
+.tphase {
+  position: relative;
+  appearance: none; -webkit-appearance: none;
+  background: none; border: 0; border-radius: 0;
+  text-align: left; cursor: pointer; font: inherit; color: inherit;
+  padding: 1.6rem 1.75rem 0 0;
+}
+.tphase::after {                                   /* the rule for this segment */
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: var(--line); transition: background-color .3s ease, height .3s ease;
+}
+.tphase:last-child::after {                        /* open-ended */
+  background: none; border-top: 1px dashed var(--line); height: 0;
+}
+.tphase[aria-selected="true"]::after { background: var(--crimson); height: 2px; }
+.tphase:last-child[aria-selected="true"]::after { border-top-color: var(--crimson); border-top-width: 2px; }
+
+.tphase::before {                                  /* marker, centred on the rule */
+  content: ""; position: absolute; left: 0; top: 0; z-index: 1;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--paper); box-shadow: inset 0 0 0 1px var(--line);
+  transform: translateY(-50%);
+  transition: box-shadow .3s ease, background-color .3s ease, width .3s ease, height .3s ease;
+}
+.tphase[aria-selected="true"]::before {
+  width: 11px; height: 11px;
+  background: var(--crimson); box-shadow: inset 0 0 0 1px var(--crimson);
+}
+.tphase:hover::before { box-shadow: inset 0 0 0 1px var(--crimson); }
+.tphase:focus-visible { outline: 2px solid var(--crimson); outline-offset: 5px; }
+
+.tphase .n {
+  display: block; font-size: .8125rem; color: var(--ink-mute);
+  font-variant-numeric: tabular-nums; transition: color .3s ease;
+}
+.tphase[aria-selected="true"] .n { color: var(--crimson); }
+.tphase .stage {
+  display: block; margin-top: .5rem;
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem); line-height: 1.1;
+  color: var(--ink-mute); white-space: nowrap; transition: color .3s ease;
+}
+.tphase[aria-selected="true"] .stage { color: var(--ink); }
+.tphase .dur {
+  display: block; margin-top: .45rem; font-size: .8125rem;
+  color: var(--ink-mute); white-space: nowrap;
+}
+
+/* ---- detail panel ----
+   Three columns: a large numeral that anchors the block, the statement and
+   its paragraph, then the facts. Height is reserved by script.js from the
+   tallest panel, so moving between phases never resizes the section. */
+
+.track-panels { margin-top: clamp(2.5rem, 6vh, 4.5rem); }
+
+.tpanel[hidden] { display: none; }
+.tpanel { display: grid; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+@media (min-width: 880px) { .tpanel { grid-template-columns: auto 1.35fr .85fr; } }
+
+.tpanel.is-entering { animation: tpanel-in .45s cubic-bezier(.22,.61,.36,1) both; }
+@keyframes tpanel-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.tnum {
+  font-family: var(--serif); font-weight: 200;
+  font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: .8;
+  letter-spacing: -.04em; color: var(--crimson); opacity: .16;
+  font-variant-numeric: tabular-nums;
+  margin-top: -.08em;
+}
+
+.tbody h3 {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.2;
+  letter-spacing: -.01em; margin-bottom: 1rem; max-width: 24ch;
+  text-wrap: balance;
+}
+.tbody p { color: var(--ink-soft); max-width: 46ch; }
+
+.tmeta { padding-top: .35rem; }
+.tmeta dl { margin: 0; }
+.tmeta dt {
+  font-size: .8125rem; color: var(--ink-mute);
+  border-top: 1px solid var(--line); padding-top: .7rem; margin-top: 1.35rem;
+}
+.tmeta dl > dt:first-child { margin-top: 0; }
+.tmeta dd { margin: .4rem 0 0; font-size: 1.0625rem; color: var(--ink); line-height: 1.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tphase::after, .tphase::before, .tphase .n, .tphase .stage { transition: none; }
+  .tpanel.is-entering { animation: none; }
+}
+/* The two densest sections on this page. Both are trimmed structurally —
+   padding and rhythm — rather than by cutting the detail they exist to carry. */
+#s-building .marks li { margin-bottom: .22rem; }
+#s-building .body-lg { font-size: 1.1875rem; }
+#s-building .sec-head { margin-bottom: clamp(1.1rem, 2.4vh, 1.9rem); }
+
+#s-engagement { padding-block: clamp(2.4rem, 5.6vh, 4.75rem); }
+#s-engagement .sec-head { margin-bottom: 0; }
+
+
+
+#s-engagement .tmeta .marks li { font-size: .9688rem; line-height: 1.45; }
+#s-engagement .tmeta dt { padding-top: .5rem; margin-top: .5rem; }
+
+/* =========================================================
+   Short desktop screens (1366x768 and similar)
+   The larger type scale is sized for a tall window. On a short
+   one it has to step back a notch, or sections stop fitting.
+   Tall screens keep the bigger sizes untouched.
+   ========================================================= */
+@media (min-width: 900px) and (max-height: 830px) {
+  :root {
+    --pad-section: clamp(1.5rem, 3.4vh, 2.9rem);
+    --gap-head:    clamp(.9rem, 2.2vh, 1.8rem);
+    --gap-grid:    clamp(1rem, 2.4vh, 2rem);
+  }
+  body { font-size: 1.0625rem; }
+  .d1 { font-size: clamp(2.5rem, 5vw, 4.2rem); }
+  .d2 { font-size: clamp(1.95rem, 3.6vw, 2.95rem); }
+  .d3 { font-size: clamp(1.5rem, 2.3vw, 2rem); }
+  .lede { font-size: clamp(1.15rem, 1.6vw, 1.38rem); }
+  .body-lg { font-size: 1.125rem; }
+  .t1 { font-size: 1.0938rem; }
+  .sec-n { font-size: clamp(1.2rem, 2vw, 1.65rem); }
+  .ruled-grid p, .marks li, .numbered p, .stages p { font-size: 1rem; }
+  .figure .cap { font-size: 1rem; }
+  .posts h3 { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+  .tphase .stage { font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+  .tpanel h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); }
+  #s-engagement { padding-block: clamp(1.9rem, 4.4vh, 3.5rem); }
+  #s-engagement .track { margin-top: clamp(1.6rem, 3.6vh, 2.5rem); }
+  #s-engagement .track-panels { margin-top: clamp(1.75rem, 4vh, 3rem); }
+  #s-engagement .tphase { padding-top: 1.25rem; }
+  .tnum { font-size: clamp(3rem, 6vw, 5.25rem); }
+  
+  #s-engagement .tpanel p + p { margin-top: .6em; }
+  .case-body p, .case-body li { font-size: 1rem; }
+  .case-results li { font-size: .9688rem; padding: .45rem 0; }
 }
