@@ -47,8 +47,8 @@ html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   font-family: var(--sans);
-  font-size: 1.0625rem;
-  line-height: 1.68;
+  font-size: 1.125rem;
+  line-height: 1.66;
   font-weight: 400;
   color: var(--ink);
   background: var(--paper);
@@ -68,26 +68,26 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
-.d1 { font-size: clamp(2.75rem, 5.6vw, 4.75rem); }
-.d2 { font-size: clamp(2.1rem, 4vw, 3.35rem); }
-.d3 { font-size: clamp(1.6rem, 2.4vw, 2.15rem); line-height: 1.16; }
+.d1 { font-size: clamp(3.1rem, 6.4vw, 5.6rem); }
+.d2 { font-size: clamp(2.4rem, 4.7vw, 3.9rem); }
+.d3 { font-size: clamp(1.75rem, 2.7vw, 2.4rem); line-height: 1.16; }
 
 /* Sub-heads sit in the sans, at text weight — never bolded up. */
-.t1 { font-family: var(--sans); font-size: 1.0625rem; font-weight: 500; letter-spacing: -0.005em; line-height: 1.4; }
-.t2 { font-family: var(--sans); font-size: 0.9375rem; font-weight: 500; letter-spacing: 0.005em; line-height: 1.45; }
+.t1 { font-family: var(--sans); font-size: 1.1875rem; font-weight: 500; letter-spacing: -0.005em; line-height: 1.4; }
+.t2 { font-family: var(--sans); font-size: 1.0625rem; font-weight: 500; letter-spacing: 0.005em; line-height: 1.45; }
 
 p { margin: 0 0 1.15em; }
 p:last-child { margin-bottom: 0; }
 
 .lede {
   font-family: var(--serif);
-  font-size: clamp(1.1875rem, 1.75vw, 1.5rem);
+  font-size: clamp(1.3rem, 1.95vw, 1.7rem);
   font-weight: 300;
   line-height: 1.5;
   color: var(--ink-soft);
   max-width: 46rem;
 }
-.body-lg { font-size: 1.125rem; line-height: 1.7; }
+.body-lg { font-size: 1.25rem; line-height: 1.65; }
 .muted { color: var(--ink-soft); }
 .accent { color: var(--crimson); }
 
@@ -134,8 +134,8 @@ section { padding-block: var(--pad-section); }
   border-top: 1px solid var(--line);
   margin-bottom: clamp(1.5rem, 3.5vh, 2.75rem);
 }
-.sec-n { font-family: var(--sans); font-size: .8125rem; font-weight: 400; color: var(--ink-mute); font-variant-numeric: tabular-nums; }
-.sec-label { font-family: var(--sans); font-size: .8125rem; font-weight: 400; color: var(--ink-mute); }
+.sec-n { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 300; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.sec-label { font-family: var(--sans); font-size: .9375rem; font-weight: 400; color: var(--ink-mute); }
 
 /* Every section header is the same shape: the statement runs the full
    measure, the supporting lede sits beneath it at a readable line length.
@@ -178,11 +178,11 @@ section { padding-block: var(--pad-section); }
 .band-night .ruled-grid > li { border-color: var(--line-d); }
 .ruled-grid .idx { display: block; font-size: .8125rem; color: var(--crimson); margin-bottom: .7rem; font-variant-numeric: tabular-nums; }
 .ruled-grid h3 { margin-bottom: .55rem; }
-.ruled-grid p { color: var(--ink-soft); font-size: .9688rem; }
+.ruled-grid p { color: var(--ink-soft); font-size: 1.0625rem; }
 
 /* Plain marker list */
 .marks { list-style: none; margin: .85rem 0 0; padding: 0; }
-.marks li { position: relative; padding-left: 1.15rem; margin-bottom: clamp(.35rem, 1vh, .6rem); color: var(--ink-soft); font-size: .9688rem; line-height: 1.55; }
+.marks li { position: relative; padding-left: 1.25rem; margin-bottom: clamp(.35rem, 1vh, .6rem); color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.55; }
 .marks li::before { content: ""; position: absolute; left: 0; top: .72em; width: 4px; height: 1px; background: var(--crimson); }
 .marks li:last-child { margin-bottom: 0; }
 .band-night .marks li { color: #b6b4b0; }
@@ -201,7 +201,7 @@ section { padding-block: var(--pad-section); }
   font-size: .8125rem; color: var(--crimson); padding-top: .35rem;
   font-variant-numeric: tabular-nums;
 }
-.numbered p { color: var(--ink-soft); font-size: .9688rem; margin: .3rem 0 0; }
+.numbered p { color: var(--ink-soft); font-size: 1.0625rem; margin: .35rem 0 0; }
 .band-night .numbered > li { border-color: var(--line-d); }
 .band-night .numbered p { color: #b6b4b0; }
 
@@ -212,7 +212,7 @@ section { padding-block: var(--pad-section); }
 .stages > li:last-child { border-bottom: 1px solid var(--line); }
 .stages .n { font-size: .8125rem; color: var(--crimson); padding-top: .3rem; font-variant-numeric: tabular-nums; }
 .stages .when { font-size: .8125rem; color: var(--ink-mute); padding-top: .35rem; }
-.stages p { color: var(--ink-soft); font-size: .9688rem; margin: .3rem 0 0; }
+.stages p { color: var(--ink-soft); font-size: 1.0625rem; margin: .35rem 0 0; }
 .band-night .stages > li { border-color: var(--line-d); }
 .band-night .stages p { color: #b6b4b0; }
 
@@ -288,17 +288,26 @@ section { padding-block: var(--pad-section); }
 .hero-inner { max-width: 60rem; }
 .hero .d1 { color: #fff; }
 .hero-rule { border-top: 1px solid rgba(255,255,255,.22); padding-top: .85rem; margin-bottom: clamp(1.5rem, 4vh, 2.75rem); display: flex; gap: 1.25rem; }
-.hero-rule span { font-size: .8125rem; color: rgba(255,255,255,.6); }
+.hero-rule span { font-size: .9375rem; color: rgba(255,255,255,.72); letter-spacing: .02em; }
 .hero-sub { font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 300; color: #fff; margin: 1.35rem 0 0; }
 .hero-sub .sep { color: var(--crimson); padding-inline: .45rem; }
-.hero-lede { margin-top: 1.5rem; font-size: 1.0625rem; line-height: 1.7; color: #b6b4b0; max-width: 44rem; }
+.hero-lede { margin-top: 1.5rem; font-size: 1.1875rem; line-height: 1.65; color: #c3c0bc; max-width: 46rem; }
+
+/* Homepage hero: the firm's name is the headline, with the positioning
+   line carried beneath it rather than standing in for it. */
+.hero-wordmark { letter-spacing: -.03em; line-height: .95; }
+.hero-claim {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.6rem, 2.9vw, 2.35rem); line-height: 1.2;
+  color: #fff; margin: 1.1rem 0 0; max-width: 24ch;
+}
 
 .hero-page { padding-block: clamp(2.75rem, 7vh, 6rem); }
 
 /* ---------- buttons ---------- */
 
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: clamp(1.75rem, 4vh, 2.75rem); }
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: .85rem 1.55rem; border: 1px solid transparent; font: 400 .9375rem/1 var(--sans); text-decoration: none; cursor: pointer; transition: background-color .16s ease, color .16s ease, border-color .16s ease; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 1.05rem 2rem; border: 1px solid transparent; font: 500 1.0625rem/1 var(--sans); text-decoration: none; cursor: pointer; transition: background-color .16s ease, color .16s ease, border-color .16s ease; }
 .btn-primary { background: var(--crimson); color: #fff; }
 .btn-primary:hover { background: var(--crimson-d); color: #fff; }
 .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.38); }
@@ -316,9 +325,9 @@ section { padding-block: var(--pad-section); }
 .figure .n { font-family: var(--serif); font-weight: 300; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; letter-spacing: -.02em; color: var(--ink); }
 .band-night .figure .n { color: #fff; }
 .figure .n .u { font-size: .38em; letter-spacing: 0; }
-.figure .cap { margin-top: .8rem; font-size: .9375rem; line-height: 1.5; color: var(--ink-soft); max-width: 28ch; }
+.figure .cap { margin-top: .85rem; font-size: 1.0625rem; line-height: 1.5; color: var(--ink-soft); max-width: 28ch; }
 .band-night .figure .cap { color: #b6b4b0; }
-.figure .src { margin-top: .55rem; font-size: .8125rem; color: var(--ink-mute); }
+.figure .src { margin-top: .6rem; font-size: .875rem; color: var(--ink-mute); }
 
 /* ---------- pull statement ---------- */
 
@@ -531,4 +540,46 @@ html.js-tx [data-rv].rv-in {
   .case-body p, .case-body li { font-size: .9063rem; line-height: 1.55; }
   .case-results li { padding: .5rem 0; }
   .case-body h3 { margin-top: clamp(.9rem, 2vh, 1.5rem); }
+}
+
+/* =========================================================
+   Fit adjustments after the type scale increase.
+   These trim only the densest blocks, so the larger reading
+   sizes asked for are kept everywhere they are read.
+   ========================================================= */
+
+/* The closing CTA is a call to action, not a section statement — it does not
+   need the full display size, and at full size a longer one costs a line. */
+#contact .d2 { font-size: clamp(2.05rem, 3.6vw, 3rem); }
+#contact .lede { max-width: 38rem; }
+.form-shell .field { margin-bottom: clamp(.5rem, 1.3vh, .9rem); }
+.form-shell .field textarea { min-height: 5.5rem; }
+#contact .btn { padding-block: .9rem; }
+#contact .form-note { margin-top: .6rem; }
+
+/* Case studies carry the most prose of any section; one notch below the new
+   base keeps each case on a single screen and is still larger than before. */
+.case-body p, .case-body li { font-size: 1.0625rem; }
+.case-results li { font-size: 1rem; }
+.case-body .marks li { margin-bottom: .28rem; line-height: 1.5; }
+.case-body h3 { margin-top: clamp(.95rem, 2.1vh, 1.6rem); }
+.case-body p { margin-bottom: .78em; }
+.case-results li { padding: clamp(.5rem, 1.35vh, .72rem) 0; }
+
+/* A very slow, continuous scale on the video. This is a CSS animation, so it
+   runs at the display's full frame rate no matter how few unique frames the
+   footage itself is showing — it restores the feeling of slow continuous
+   travel that a low playbackRate alone cannot, because that only subtracts
+   frames. Paused entirely for reduced motion. */
+.hero-media video {
+  transform-origin: 58% 52%;
+  animation: hero-drift 72s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes hero-drift {
+  from { transform: scale(1.01); }
+  to   { transform: scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-media video { animation: none; transform: none; }
 }

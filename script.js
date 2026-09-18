@@ -101,11 +101,12 @@
       // data-saver modes defer autoplay until there is an interaction. Retry
       // on the first one rather than discarding the video; a still frame
       // behind the scrim is a perfectly good hero in the meantime.
-      // Quarter speed. The source is a speeding-metro shot, fast enough at any
-      // normal rate to pull attention off the headline; this reduces it to
-      // ambient drift. Re-applied on play and on metadata load, because some
-      // browsers reset the rate when the element (re)initialises.
-      var HERO_SPEED = 0.25;
+      // Plays at normal rate. Lowering playbackRate cannot give slow AND smooth:
+      // it divides the unique frames shown, and below ~12/sec motion stops
+      // reading as continuous. The slowdown is baked into the file instead —
+      // ffmpeg synthesised the in-between frames, so it is 2.5x slower at a
+      // genuine 30fps. Kept as a constant in case the rate ever needs nudging.
+      var HERO_SPEED = 1;
       var setSpeed = function () {
         heroVid.defaultPlaybackRate = HERO_SPEED;
         heroVid.playbackRate = HERO_SPEED;
