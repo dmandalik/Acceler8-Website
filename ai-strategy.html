@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=1789754565" />
+<link rel="stylesheet" href="styles.css?v=1789758799" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -49,9 +49,8 @@
         <div class="hero-rule"><span>AI Strategy</span></div>
         <h1 class="d1">A strategy you can <span class="hl">actually execute</span>.</h1>
         <p class="hero-lede">
-          Winning strategy separates average from great. Once codified, it lives
-          inside the company &mdash; someone in field sales or shipping can
-          articulate how you are going to win, and what their part in it is.
+          Five phases, six to eight weeks, and a ranked roadmap your leadership
+          team has already agreed to.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="#contact">Let's Accelr8 your AI strategy</a>
@@ -88,26 +87,29 @@
     </div>
   </section>
 
-  <section class="band-wash" data-nav-label="Purpose-aligned">
+  <section class="band-wash" id="s-building" data-nav-label="What we are building">
     <div class="wrap">
       <div class="sec-head">
-        <div class="rule-top"><span class="sec-n">02</span><span class="sec-label">Point of view</span></div>
-        <h2 class="d2 statement-wide">Winning companies are <span class="hl">purpose-aligned</span>.</h2>
+        <div class="rule-top"><span class="sec-n">02</span><span class="sec-label">What we are building</span></div>
+        <div class="head-split">
+          <h2 class="d2">A strategy is only real once <span class="hl">everyone can say it out loud</span>.</h2>
+          <p class="lede">Most plans fail in the gap between the deck and the organisation.</p>
+        </div>
       </div>
       <div class="cols cols-57">
         <div>
           <p class="body-lg">
-            Everyone executes their responsibilities on time and on budget.
-            Everyone rows in the same direction. Winning strategy is built on a
-            foundation of market and customer insight, and its offerings are
-            better than the competition <em>by design</em>.
+            A winning strategy is built on market and customer insight, and beats
+            the competition <em>by design</em> rather than by accident. But the
+            test of whether you have one is simpler: can someone in field sales
+            or shipping say how the company intends to win, and what their part
+            in it is?
           </p>
-          <p style="margin-top:1.15em">
-            Accelr8 leads the process on two axes at once: external
-            competitiveness and internal collaboration. We push teams toward ideas
-            that change the game rather than defend the current one. Strategy
-            starts with the customer &mdash; the journey, the experience, and the
-            moments of truth that inform everything downstream.
+          <p style="margin-top:1em">
+            If they can, work gets prioritised the same way in every team. If
+            they cannot, you have a document, not a direction. We run both axes
+            at once &mdash; external competitiveness, so the plan is worth
+            following, and internal collaboration, so it is followed.
           </p>
         </div>
         <div>
@@ -120,60 +122,127 @@
             <li>Training requirements</li>
             <li>Privacy and ethics concerns</li>
           </ul>
-          <p class="muted" style="margin-top:1.15rem;font-size:.9688rem">
-            Accelr8 addresses blockers smartly. We help clients document,
-            communicate and execute a strategy that holds up once it meets the
-            organisation.
+          <p class="muted" style="margin-top:1rem;font-size:1.0625rem">
+            We help clients document, communicate and execute a strategy that
+            holds up once it meets the organisation.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section data-nav-label="How it gets built">
+  <section id="s-engagement" data-nav-label="How it gets built">
     <div class="wrap">
       <div class="sec-head">
         <div class="rule-top"><span class="sec-n">03</span><span class="sec-label">Engagement</span></div>
-        <h2 class="d2 statement-wide">How the strategy gets built.</h2>
+        <h2 class="d2">How the strategy gets <span class="hl">built</span>.</h2>
       </div>
-      <ol class="stages">
-        <li>
-          <span class="n">01</span>
-          <div>
-            <h3 class="t1">Ideate with the business team</h3>
-            <p>
-              Structured ideation with your people to identify candidate
-              strategic-plan initiatives, grounded in the market and customer
-              insight we gather first &mdash; not in a workshop vacuum.
-            </p>
+
+      <div class="track" role="tablist" aria-label="Engagement phases">
+          <button class="tphase" role="tab" id="tab-01" aria-controls="panel-01" aria-selected="true" type="button">
+            <span class="n">01</span>
+            <span class="stage">Discovery</span>
+            <span class="dur">1–2 weeks</span>
+          </button>
+          <button class="tphase" role="tab" id="tab-02" aria-controls="panel-02" aria-selected="false" type="button">
+            <span class="n">02</span>
+            <span class="stage">Ideation</span>
+            <span class="dur">2–3 sessions</span>
+          </button>
+          <button class="tphase" role="tab" id="tab-03" aria-controls="panel-03" aria-selected="false" type="button">
+            <span class="n">03</span>
+            <span class="stage">Valuation</span>
+            <span class="dur">1–2 weeks</span>
+          </button>
+          <button class="tphase" role="tab" id="tab-04" aria-controls="panel-04" aria-selected="false" type="button">
+            <span class="n">04</span>
+            <span class="stage">Roadmap</span>
+            <span class="dur">1–2 weeks</span>
+          </button>
+          <button class="tphase" role="tab" id="tab-05" aria-controls="panel-05" aria-selected="false" type="button">
+            <span class="n">05</span>
+            <span class="stage">Alignment</span>
+            <span class="dur">Ongoing</span>
+          </button>
+      </div>
+
+      <div class="track-panels">
+        <div class="tpanel" role="tabpanel" id="panel-01" aria-labelledby="tab-01">
+          <div class="tnum" aria-hidden="true">01</div>
+          <div class="tbody">
+            <h3>Learn the business, the customer and the competitor</h3>
+            <p>We interview leadership and the commercial team, read the market, and map the customer journey end to end &mdash; with particular attention to the moments of truth, where a customer decides whether you are worth staying with.</p>
           </div>
-          <span class="when">Discovery</span>
-        </li>
-        <li>
-          <span class="n">02</span>
-          <div>
-            <h3 class="t1">Estimate value and probability</h3>
-            <p>
-              Each idea is sized on the value it could create and the likelihood
-              it lands. Scorecards apply objectivity and transparency to a
-              conversation otherwise driven by whoever argues hardest.
-            </p>
+          <div class="tmeta">
+            <dl>
+                <dt>Output</dt>
+                <dd>Situation analysis, customer journey map, competitive read</dd>
+                <dt>Who</dt>
+                <dd>Leadership, commercial and operations leads</dd>
+            </dl>
           </div>
-          <span class="when">Valuation</span>
-        </li>
-        <li>
-          <span class="n">03</span>
-          <div>
-            <h3 class="t1">Build the roadmap</h3>
-            <p>
-              Ideas ranked on potential and feasibility, then sequenced with
-              owners and dates. Full organisational alignment is the deliverable
-              &mdash; not the document.
-            </p>
+        </div>
+        <div class="tpanel" role="tabpanel" id="panel-02" aria-labelledby="tab-02" hidden>
+          <div class="tnum" aria-hidden="true">02</div>
+          <div class="tbody">
+            <h3>Generate candidate initiatives with the business team</h3>
+            <p>Structured sessions with your people, grounded in what discovery found rather than run in a workshop vacuum. We push toward ideas that change the game instead of defending the current one.</p>
           </div>
-          <span class="when">Roadmap</span>
-        </li>
-      </ol>
+          <div class="tmeta">
+            <dl>
+                <dt>Output</dt>
+                <dd>Candidate initiative long-list, with the reasoning attached</dd>
+                <dt>Who</dt>
+                <dd>Cross-functional working group</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="tpanel" role="tabpanel" id="panel-03" aria-labelledby="tab-03" hidden>
+          <div class="tnum" aria-hidden="true">03</div>
+          <div class="tbody">
+            <h3>Size every idea on value and on probability</h3>
+            <p>Each candidate is scored twice: the value it could create, and the likelihood it lands given your data and capability today. Scorecards settle what would otherwise go to whoever argues hardest.</p>
+          </div>
+          <div class="tmeta">
+            <dl>
+                <dt>Output</dt>
+                <dd>Scored initiative register, and the method so you can re-run it</dd>
+                <dt>Who</dt>
+                <dd>Finance and the named initiative owners</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="tpanel" role="tabpanel" id="panel-04" aria-labelledby="tab-04" hidden>
+          <div class="tnum" aria-hidden="true">04</div>
+          <div class="tbody">
+            <h3>Rank on potential and feasibility, then sequence it</h3>
+            <p>Ideas are ranked and staged into a roadmap with owners and dates &mdash; sequenced so early work builds the data and capability the later work depends on. Sequencing is where most of the value is won or lost.</p>
+          </div>
+          <div class="tmeta">
+            <dl>
+                <dt>Output</dt>
+                <dd>Three-year roadmap, owner map, staging plan</dd>
+                <dt>Who</dt>
+                <dd>Leadership team</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="tpanel" role="tabpanel" id="panel-05" aria-labelledby="tab-05" hidden>
+          <div class="tnum" aria-hidden="true">05</div>
+          <div class="tbody">
+            <h3>Codify it so the organisation can articulate it</h3>
+            <p>We turn the roadmap into a narrative the business can repeat, brief the teams who have to act on it, and set the cadence for reviewing it. Then we stay on, because the plan will meet reality and need adjusting.</p>
+          </div>
+          <div class="tmeta">
+            <dl>
+                <dt>Output</dt>
+                <dd>Strategy narrative, communications pack, review cadence</dd>
+                <dt>Who</dt>
+                <dd>The whole organisation</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -252,6 +321,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=1789754565"></script>
+<script src="script.js?v=1789758799"></script>
 </body>
 </html>
