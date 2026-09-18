@@ -373,6 +373,31 @@ thead th:last-child, tbody td:last-child { padding-right: 0; }
 .case-results li { border-top: 1px solid var(--line); padding: clamp(.55rem,1.5vh,.8rem) 0; color: var(--ink); font-size: .9375rem; line-height: 1.5; }
 .case-results li:first-child { border-top: 0; padding-top: 0; }
 
+/* The client mark rides the section rule, opposite the index and label, so
+   identifying the client costs the header a hairline rather than a band. */
+.rule-top .case-mark {
+  margin-left: auto; align-self: center; flex: none;
+  height: clamp(28px, 3.8vh, 38px); width: auto;
+  /* The client logos ship on white. `multiply` drops that white into
+     whichever ground the section is on, so the mark reads as a mark and
+     not as a white box sitting on the warm wash. */
+  mix-blend-mode: multiply;
+}
+
+/* Supporting artefacts sit under the results in the narrow column. Ruled,
+   not boxed — a hairline, the image, then the caption, like every other
+   content pattern here. */
+.case-visual { margin-top: clamp(1.4rem, 3vh, 2.2rem); display: grid; gap: clamp(1.1rem, 2.6vh, 1.75rem); }
+.case-visual figure { margin: 0; border-top: 1px solid var(--line); padding-top: clamp(.7rem, 1.6vh, 1rem); }
+/* Intrinsic size, capped by the column — never upscaled. The artefacts come
+   in at whatever resolution the client shipped them at, and a small one
+   stretched to fill the column just reads as a soft image. */
+.case-visual img { display: block; width: auto; max-width: 100%; height: auto; }
+.case-visual figcaption { margin-top: .6rem; font-family: var(--sans); font-size: .8125rem; line-height: 1.5; color: var(--ink-mute); }
+/* Single column below 900px: the artefacts would otherwise run the full
+   measure and dwarf the copy they support. */
+@media (max-width: 899px) { .case-visual { max-width: 30rem; } }
+
 /* ---------- blog ---------- */
 
 .posts { list-style: none; margin: 0; padding: 0; }
